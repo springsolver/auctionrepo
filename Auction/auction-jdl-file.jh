@@ -1,0 +1,48 @@
+
+entity Bidder {
+	name String required,
+    jmbg String required
+}
+
+entity Bid {
+	price Double required,
+    successful Boolean
+}
+
+entity AuctionItem {
+	name String required,
+    description String,
+    startDate ZonedDateTime required,
+    closeDate ZonedDateTime required,
+    startPrice Double required,
+	actualPrice Double,
+	soldPrice Double
+}
+
+entity AuctionItemStatus {
+	name String required
+}
+
+relationship ManyToOne {
+	Bid{bidder} to Bidder
+}
+
+relationship ManyToOne {
+	AuctionItem{bidder} to Bidder
+}
+
+relationship ManyToOne {
+	Bid{auctionItem} to AuctionItem
+}
+
+relationship ManyToOne {
+	AuctionItem{auctionItemStatus} to AuctionItemStatus
+}
+
+// Set pagination options
+paginate Bidder, Bid, AuctionItem, AuctionItemStatus with infinite-scroll
+
+dto * with mapstruct
+
+// Set an angular suffix
+angularSuffix * with mySuffixcd

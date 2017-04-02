@@ -1,0 +1,23 @@
+{
+    "auctionApp": {
+        "bidder" : {
+            "home": {
+                "title": "Bidders",
+                "createLabel": "Create a new Bidder",
+                "createOrEditLabel": "Create or edit a Bidder",
+                "search": "Search for Bidder"
+            },
+            "created": "A new Bidder is created with identifier {{ param }}",
+            "updated": "A Bidder is updated with identifier {{ param }}",
+            "deleted": "A Bidder is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Bidder {{ id }}?"
+            },
+            "detail": {
+                "title": "Bidder"
+            },
+            "name": "Name",
+            "jmbg": "Jmbg"
+        }
+    }
+}

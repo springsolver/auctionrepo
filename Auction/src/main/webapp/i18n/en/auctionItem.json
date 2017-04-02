@@ -1,0 +1,30 @@
+{
+    "auctionApp": {
+        "auctionItem" : {
+            "home": {
+                "title": "Auction Items",
+                "createLabel": "Create a new Auction Item",
+                "createOrEditLabel": "Create or edit a Auction Item",
+                "search": "Search for Auction Item"
+            },
+            "created": "A new Auction Item is created with identifier {{ param }}",
+            "updated": "A Auction Item is updated with identifier {{ param }}",
+            "deleted": "A Auction Item is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Auction Item {{ id }}?"
+            },
+            "detail": {
+                "title": "Auction Item"
+            },
+            "name": "Name",
+            "description": "Description",
+            "startDate": "Start Date",
+            "closeDate": "Close Date",
+            "startPrice": "Start Price",
+            "actualPrice": "Actual Price",
+            "soldPrice": "Sold Price",
+            "bidder": "Bidder",
+            "auctionItemStatus": "Auction Item Status"
+        }
+    }
+}

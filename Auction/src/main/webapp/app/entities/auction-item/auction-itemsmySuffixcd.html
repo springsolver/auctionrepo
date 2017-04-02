@@ -1,0 +1,76 @@
+<div>
+    <h2 data-translate="auctionApp.auctionItem.home.title">Auction Items</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="auction-itemmySuffixcd.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="auctionApp.auctionItem.home.createLabel">
+                        Create new Auction Item
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span data-translate="auctionApp.auctionItem.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="description"><span data-translate="auctionApp.auctionItem.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="startDate"><span data-translate="auctionApp.auctionItem.startDate">Start Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="closeDate"><span data-translate="auctionApp.auctionItem.closeDate">Close Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="startPrice"><span data-translate="auctionApp.auctionItem.startPrice">Start Price</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="actualPrice"><span data-translate="auctionApp.auctionItem.actualPrice">Actual Price</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="soldPrice"><span data-translate="auctionApp.auctionItem.soldPrice">Sold Price</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="bidderId"><span data-translate="auctionApp.auctionItem.bidder">Bidder</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="auctionItemStatusId"><span data-translate="auctionApp.auctionItem.auctionItemStatus">Auction Item Status</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
+                <tr ng-repeat="auctionItem in vm.auctionItems track by auctionItem.id">
+                    <td><a ui-sref="auction-itemmySuffixcd-detail({id:auctionItem.id})">{{auctionItem.id}}</a></td>
+                    <td>{{auctionItem.name}}</td>
+                    <td>{{auctionItem.description}}</td>
+                    <td>{{auctionItem.startDate | date:'medium'}}</td>
+                    <td>{{auctionItem.closeDate | date:'medium'}}</td>
+                    <td>{{auctionItem.startPrice}}</td>
+                    <td>{{auctionItem.actualPrice}}</td>
+                    <td>{{auctionItem.soldPrice}}</td>
+                    <td>
+                        <a ui-sref="biddermySuffixcd-detail({id:auctionItem.bidderId})">{{auctionItem.bidderId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="auction-item-statusmySuffixcd-detail({id:auctionItem.auctionItemStatusId})">{{auctionItem.auctionItemStatusId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="auction-itemmySuffixcd-detail({id:auctionItem.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="auction-itemmySuffixcd.edit({id:auctionItem.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="auction-itemmySuffixcd.delete({id:auctionItem.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+{
+    "auctionApp": {
+        "auctionItemStatus" : {
+            "home": {
+                "title": "Auction Item Statuses",
+                "createLabel": "Create a new Auction Item Status",
+                "createOrEditLabel": "Create or edit a Auction Item Status",
+                "search": "Search for Auction Item Status"
+            },
+            "created": "A new Auction Item Status is created with identifier {{ param }}",
+            "updated": "A Auction Item Status is updated with identifier {{ param }}",
+            "deleted": "A Auction Item Status is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Auction Item Status {{ id }}?"
+            },
+            "detail": {
+                "title": "Auction Item Status"
+            },
+            "name": "Name"
+        }
+    }
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Bid.
+    -->
+    <changeSet id="20170402121732-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="bidder_id"
+                                 baseTableName="bid"
+                                 constraintName="fk_bid_bidder_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bidder"/>
+
+        <addForeignKeyConstraint baseColumnNames="auction_item_id"
+                                 baseTableName="bid"
+                                 constraintName="fk_bid_auction_item_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="auction_item"/>
+
+    </changeSet>
+</databaseChangeLog>

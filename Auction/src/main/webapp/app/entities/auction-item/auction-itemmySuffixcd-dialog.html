@@ -1,0 +1,124 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myAuctionItemLabel" data-translate="auctionApp.auctionItem.home.createOrEditLabel">Create or edit a Auction Item</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.auctionItem.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.auctionItem.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="auctionApp.auctionItem.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.auctionItem.name"
+                    required />
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.name.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="auctionApp.auctionItem.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.auctionItem.description"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="auctionApp.auctionItem.startDate" for="field_startDate">Start Date</label>
+                <div class="input-group">
+                    <input id="field_startDate" type="text" class="form-control" name="startDate" datetime-picker="{{dateformat}}" ng-model="vm.auctionItem.startDate" is-open="vm.datePickerOpenStatus.startDate"
+                    required  />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('startDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.startDate.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.startDate.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.startDate.$error.ZonedDateTimelocal" data-translate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="auctionApp.auctionItem.closeDate" for="field_closeDate">Close Date</label>
+                <div class="input-group">
+                    <input id="field_closeDate" type="text" class="form-control" name="closeDate" datetime-picker="{{dateformat}}" ng-model="vm.auctionItem.closeDate" is-open="vm.datePickerOpenStatus.closeDate"
+                    required  />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('closeDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.closeDate.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.closeDate.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.closeDate.$error.ZonedDateTimelocal" data-translate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="auctionApp.auctionItem.startPrice" for="field_startPrice">Start Price</label>
+            <input type="number" class="form-control" name="startPrice" id="field_startPrice"
+                    ng-model="vm.auctionItem.startPrice"
+                    required />
+            <div ng-show="editForm.startPrice.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.startPrice.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.startPrice.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="auctionApp.auctionItem.actualPrice" for="field_actualPrice">Actual Price</label>
+            <input type="number" class="form-control" name="actualPrice" id="field_actualPrice"
+                    ng-model="vm.auctionItem.actualPrice"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="auctionApp.auctionItem.soldPrice" for="field_soldPrice">Sold Price</label>
+            <input type="number" class="form-control" name="soldPrice" id="field_soldPrice"
+                    ng-model="vm.auctionItem.soldPrice"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label data-translate="auctionApp.auctionItem.bidder" for="field_bidder">Bidder</label>
+            <select class="form-control" id="field_bidder" name="bidder" ng-model="vm.auctionItem.bidderId" ng-options="bidder.id as bidder.name for bidder in vm.bidders"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="auctionApp.auctionItem.auctionItemStatus" for="field_auctionItemStatus">Auction Item Status</label>
+            <select class="form-control" id="field_auctionItemStatus" name="auctionItemStatus" ng-model="vm.auctionItem.auctionItemStatusId" ng-options="auctionItemStatus.id as auctionItemStatus.name for auctionItemStatus in vm.auctionitemstatuses"            >
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

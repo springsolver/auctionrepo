@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity AuctionItem.
+    -->
+    <changeSet id="20170402121733-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="bidder_id"
+                                 baseTableName="auction_item"
+                                 constraintName="fk_auction_item_bidder_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bidder"/>
+
+        <addForeignKeyConstraint baseColumnNames="auction_item_status_id"
+                                 baseTableName="auction_item"
+                                 constraintName="fk_auction_item_auction_item_status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="auction_item_status"/>
+
+    </changeSet>
+</databaseChangeLog>

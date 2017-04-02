@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="auctionApp.bid.detail.title">Bid</span> {{vm.bid.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="auctionApp.bid.price">Price</span></dt>
+        <dd>
+            <span>{{vm.bid.price}}</span>
+        </dd>
+        <dt><span data-translate="auctionApp.bid.successful">Successful</span></dt>
+        <dd>
+            <span>{{vm.bid.successful}}</span>
+        </dd>
+        <dt><span data-translate="auctionApp.bid.bidder">Bidder</span></dt>
+        <dd>
+            <a ui-sref="biddermySuffixcd-detail({id:vm.bid.bidderId})">{{vm.bid.bidderId}}</a>
+        </dd>
+        <dt><span data-translate="auctionApp.bid.auctionItem">Auction Item</span></dt>
+        <dd>
+            <a ui-sref="auction-itemmySuffixcd-detail({id:vm.bid.auctionItemId})">{{vm.bid.auctionItemId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="bidmySuffixcd-detail.edit({id:vm.bid.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>
